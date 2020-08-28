@@ -12,6 +12,7 @@
     "dependencies": {
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
+        "react-calendar-heatmap": "^1.8.1",
         "react-dom": "^16.8.6",
         "styled-components": "^4.4.1"
     },
