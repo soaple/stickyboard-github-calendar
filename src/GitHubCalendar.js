@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CalendarHeatmap from 'react-calendar-heatmap';
+import ReactTooltip from 'react-tooltip';
 
 import 'react-calendar-heatmap/dist/styles.css';
 import '../static/css/style.css';
@@ -24,8 +25,9 @@ class GitHubCalendar extends React.Component {
                     startDate={new Date('2020-01-01')}
                     endDate={new Date('2020-12-31')}
                     gutterSize={3}
+                    showOutOfRangeDays={true}
                     values={[
-                        { date: '2020-01-02', count: 1 },
+                        { date: '2020-01-01', count: 1 },
                         { date: '2020-01-22', count: 2 },
                         { date: '2020-01-30', count: 3 },
                         { date: '2020-02-11', count: 4 },
@@ -39,7 +41,13 @@ class GitHubCalendar extends React.Component {
                         }
                         return `color-scale-${value.count}`;
                     }}
+                    tooltipDataAttrs={(value) =>
+                        value.date && {
+                            'data-tip': `${value.count} counts on ${value.date}`,
+                        }
+                    }
                 />
+                <ReactTooltip />
             </Wrapper>
         );
     }
