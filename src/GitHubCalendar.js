@@ -6,10 +6,12 @@ import styled from 'styled-components';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 
-import 'react-calendar-heatmap/dist/styles.css';
 import '../static/css/style.css';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+    overflow-x: scroll;
+    direction: rtl;
+`;
 
 class GitHubCalendar extends React.Component {
     constructor(props) {
@@ -34,6 +36,10 @@ class GitHubCalendar extends React.Component {
                         { date: '2020-02-30', count: 2 },
                         { date: '2020-03-20', count: 1 },
                         { date: '2020-05-24', count: 4 },
+                        { date: '2020-11-24', count: 4 },
+                        { date: '2020-12-24', count: 2 },
+                        { date: '2020-12-25', count: 3 },
+                        { date: '2020-12-28', count: 4 },
                     ]}
                     classForValue={(value) => {
                         if (!value) {
@@ -42,8 +48,8 @@ class GitHubCalendar extends React.Component {
                         return `color-scale-${value.count}`;
                     }}
                     tooltipDataAttrs={(value) =>
-                        value.date && {
-                            'data-tip': `${value.count} counts on ${value.date}`,
+                        value.count && {
+                            'data-tip': `(${value.date}) ${value.count}`,
                         }
                     }
                 />
