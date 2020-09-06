@@ -1,3 +1,57 @@
-/**
- * Write your custom CSS styles
- */
+/*
+    react-calendar-heatmap styles
+*/
+
+.react-calendar-heatmap rect:hover {
+    stroke: #555;
+    stroke-width: 1px;
+}
+
+.react-calendar-heatmap {
+    height: 160px;
+    padding: 15px 15px 5px;
+}
+
+.react-calendar-heatmap text {
+    font-size: 9px;
+    fill: #767676;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-small-text {
+    font-size: 5px;
+}
+
+.react-calendar-heatmap-month-labels {
+    transform: translateY(-3px);
+}
+
+.react-calendar-heatmap rect:hover {
+    stroke: #c3c3c3;
+}
+
+.react-calendar-heatmap rect[class^='color'] {
+    outline: 1px solid rgba(27, 31, 35, 0.04);
+    outline-offset: -1px;
+    rx: 2;
+    ry: 2;
+}
+
+.react-calendar-heatmap .color-empty {
+    fill: #eeeeee;
+}
+
+.react-calendar-heatmap .color-scale-1 {
+    fill: #9be9a8;
+}
+
+.react-calendar-heatmap .color-scale-2 {
+    fill: #40c463;
+}
+
+.react-calendar-heatmap .color-scale-3 {
+    fill: #30a14e;
+}
+
+.react-calendar-heatmap .color-scale-4 {
+    fill: #216e39;
+}

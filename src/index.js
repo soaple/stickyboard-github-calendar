@@ -1,3 +1,3 @@
-import GitHubCalendar from './SampleComponent';
+import GitHubCalendar from './GitHubCalendar';
 
 export { GitHubCalendar };
