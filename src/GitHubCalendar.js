@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
+import Legends from './Legends';
 
 import '../static/css/style.css';
 
@@ -61,6 +62,7 @@ class GitHubCalendar extends React.Component {
                     }
                 />
                 <ReactTooltip />
+                <Legends />
             </Wrapper>
         );
     }
