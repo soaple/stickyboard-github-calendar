@@ -19,11 +19,8 @@ class GitHubCalendar extends React.Component {
         super(props);
     }
 
-    countList = this.props.data.map((value) => value.count);
-    largest = Math.max.apply(null, this.countList);
-
-    calculateCount = (value) => {
-        const count = (value.count / this.largest) * 100;
+    calculateCount = (value, largest) => {
+        const count = (value.count / largest) * 100;
 
         if (count < 10) {
             return 1;
@@ -39,6 +36,8 @@ class GitHubCalendar extends React.Component {
 
     render() {
         const { startDate, endDate, data } = this.props;
+        const countList = data.map((value) => value.count);
+        const largest = Math.max.apply(null, countList);
 
         return (
             <Wrapper>
@@ -52,7 +51,7 @@ class GitHubCalendar extends React.Component {
                         if (!value) {
                             return 'color-empty';
                         }
-                        const count = this.calculateCount(value);
+                        const count = this.calculateCount(value, largest);
                         return `color-scale-${count}`;
                     }}
                     tooltipDataAttrs={(value) =>
