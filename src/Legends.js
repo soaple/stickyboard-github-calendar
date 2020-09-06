@@ -29,8 +29,8 @@ function Legends() {
     return (
         <LegendsWrapper>
             <Text>Less</Text>
-            {colors.map((color) => (
-                <Color style={{ backgroundColor: color }}></Color>
+            {colors.map((color, index) => (
+                <Color key={index} style={{ backgroundColor: color }}></Color>
             ))}
             <Text>More</Text>
         </LegendsWrapper>
