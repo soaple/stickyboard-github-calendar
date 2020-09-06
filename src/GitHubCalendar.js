@@ -16,36 +16,43 @@ const Wrapper = styled.div`
 class GitHubCalendar extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {};
     }
 
+    countList = this.props.data.map((value) => value.count);
+    largest = Math.max.apply(null, this.countList);
+
+    calculateCount = (value) => {
+        const count = (value.count / this.largest) * 100;
+
+        if (count < 10) {
+            return 1;
+        }
+        if (count < 30) {
+            return 2;
+        }
+        if (count < 70) {
+            return 3;
+        }
+        return 4;
+    };
+
     render() {
+        const { startDate, endDate, data } = this.props;
+
         return (
             <Wrapper>
                 <CalendarHeatmap
-                    startDate={new Date('2020-01-01')}
-                    endDate={new Date('2020-12-31')}
+                    startDate={new Date(startDate)}
+                    endDate={new Date(endDate)}
                     gutterSize={3}
                     showOutOfRangeDays={true}
-                    values={[
-                        { date: '2020-01-01', count: 1 },
-                        { date: '2020-01-22', count: 2 },
-                        { date: '2020-01-30', count: 3 },
-                        { date: '2020-02-11', count: 4 },
-                        { date: '2020-02-30', count: 2 },
-                        { date: '2020-03-20', count: 1 },
-                        { date: '2020-05-24', count: 4 },
-                        { date: '2020-11-24', count: 4 },
-                        { date: '2020-12-24', count: 2 },
-                        { date: '2020-12-25', count: 3 },
-                        { date: '2020-12-28', count: 4 },
-                    ]}
+                    values={data}
                     classForValue={(value) => {
                         if (!value) {
                             return 'color-empty';
                         }
-                        return `color-scale-${value.count}`;
+                        const count = this.calculateCount(value);
+                        return `color-scale-${count}`;
                     }}
                     tooltipDataAttrs={(value) =>
                         value.count && {
