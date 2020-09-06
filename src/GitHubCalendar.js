@@ -66,6 +66,15 @@ class GitHubCalendar extends React.Component {
     }
 }
 
-GitHubCalendar.propTypes = {};
+GitHubCalendar.propTypes = {
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            date: PropTypes.string,
+            count: PropTypes.number,
+        })
+    ),
+};
 
 export default GitHubCalendar;
