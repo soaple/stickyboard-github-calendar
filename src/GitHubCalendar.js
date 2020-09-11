@@ -36,6 +36,7 @@ class GitHubCalendar extends React.Component {
 
     render() {
         const { startDate, endDate, data } = this.props;
+
         const countList = data.map((value) => value.count);
         const largest = Math.max.apply(null, countList);
 
