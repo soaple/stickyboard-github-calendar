@@ -34,8 +34,6 @@ const sampleData = [
 ];
 
 function SampleGitHubCalendar(props) {
-    const { colors } = props;
-
     return (
         <GitHubCalendar
             startDate={'2020-01-01'}
